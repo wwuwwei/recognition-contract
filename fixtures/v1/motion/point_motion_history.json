@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "post_p2.4/point_motion/left_wrist_down",
+  "scope": "post_p2.4",
+  "primitive": "point_motion",
+  "args": {"hand": "left", "target": "wrist", "direction": "down"},
+  "input": {
+    "mode": "raw_landmarks",
+    "history": [
+      {"timestamp_ms": 0, "hands": {"left": {"handedness": "left", "landmarks": {"space": "normalized", "points": {"0": [0.1, 0.1, 0]}}}, "right": null}},
+      {"timestamp_ms": 100, "hands": {"left": {"handedness": "left", "landmarks": {"space": "normalized", "points": {"0": [0.1, 0.2, 0]}}}, "right": null}},
+      {"timestamp_ms": 200, "hands": {"left": {"handedness": "left", "landmarks": {"space": "normalized", "points": {"0": [0.1, 0.3, 0]}}}, "right": null}},
+      {"timestamp_ms": 300, "hands": {"left": {"handedness": "left", "landmarks": {"space": "normalized", "points": {"0": [0.1, 0.4, 0]}}}, "right": null}}
+    ]
+  },
+  "expected": {"matched": true},
+  "metadata": {"tags": ["motion", "caller_order", "no_timestamp_sort", "no_current_frame_append"]}
+}

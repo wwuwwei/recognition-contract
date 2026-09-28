@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "post_p2.1/hand_face_position/static_current_frame",
+  "scope": "post_p2.1",
+  "primitive": "hand_face_position",
+  "args": {"region": "forehead", "hand_points": ["index_tip"], "hand": "left", "max_distance": 0.08},
+  "input": {
+    "mode": "raw_landmarks",
+    "frames": [{
+      "timestamp_ms": 1000,
+      "hands": {"left": {"handedness": "left", "landmarks": {"space": "normalized", "points": {"0": [0.1, 0.1, 0], "8": [0.1, 0.1, 0]}}}, "right": null},
+      "face": {"landmarks": {"space": "normalized", "points": {"10": [0.1, 0.1, 0]}}}
+    }]
+  },
+  "expected": {"matched": true},
+  "metadata": {"tags": ["cross_modality", "no_cached_hand_face_positions"]}
+}
