@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/recognition-contract/fixture.schema.v1.json",
+  "title": "Cross-Platform Recognition Fixture v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "primitive", "args", "input", "expected"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "minLength": 1},
+    "scope": {"type": "string", "minLength": 1},
+    "primitive": {"type": "string", "minLength": 1},
+    "args": {"type": "object"},
+    "input": {"$ref": "#/$defs/input"},
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["matched"],
+      "properties": {"matched": {"type": "boolean"}}
+    },
+    "metadata": {"type": "object"}
+  },
+  "$defs": {
+    "point": {
+      "type": "array",
+      "prefixItems": [
+        {"type": "number"},
+        {"type": "number"},
+        {"type": "number"}
+      ],
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "landmarks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["space", "points"],
+      "properties": {
+        "space": {"type": "string", "minLength": 1},
+        "points": {
+          "oneOf": [
+            {"type": "array", "items": {"$ref": "#/$defs/point"}},
+            {"type": "object", "patternProperties": {"^[0-9]+$": {"$ref": "#/$defs/point"}}, "additionalProperties": false}
+          ]
+        }
+      }
+    },
+    "hand": {
+      "type": ["object", "null"],
+      "required": ["handedness", "landmarks"],
+      "properties": {
+        "handedness": {"type": "string", "minLength": 1},
+        "landmarks": {"$ref": "#/$defs/landmarks"}
+      }
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["timestamp_ms", "hands"],
+      "properties": {
+        "timestamp_ms": {"type": "number"},
+        "hands": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["left", "right"],
+          "properties": {"left": {"$ref": "#/$defs/hand"}, "right": {"$ref": "#/$defs/hand"}}
+        },
+        "face": {"type": ["object", "null"]}
+      }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode"],
+      "properties": {
+        "mode": {"const": "raw_landmarks"},
+        "frames": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/frame"}},
+        "history": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/frame"}}
+      },
+      "oneOf": [{"required": ["frames"]}, {"required": ["history"]}]
+    }
+  }
+}

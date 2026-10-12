@@ -3,7 +3,7 @@
   "id": "post_p2.1/hand_face_position/static_current_frame",
   "scope": "post_p2.1",
   "primitive": "hand_face_position",
-  "args": {"region": "forehead", "hand_points": ["index_tip"], "hand": "left", "max_distance": 0.08},
+  "args": {"region": ["forehead"], "hand_points": ["index_tip"], "hand": "left", "max_distance": 0.08},
   "input": {
     "mode": "raw_landmarks",
     "frames": [{

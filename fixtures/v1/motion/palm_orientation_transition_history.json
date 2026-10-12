@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "id": "post_p2.9.3/palm_orientation_transition/facing_ordered_history",
+  "scope": "post_p2.9.3",
+  "primitive": "palm_orientation_transition",
+  "args": {"hand": "any", "from_facing": "palm_to_camera", "to_facing": "back_to_camera"},
+  "input": {
+    "mode": "raw_landmarks",
+    "history": [
+      {"timestamp_ms": 0, "hands": {"left": {"handedness": "left", "landmarks": {"space": "world", "points": {"0": [0.0, 1.0, 0.0], "5": [0.0, 0.0, 0.0], "17": [1.0, 0.0, 0.0]}}}, "right": null}},
+      {"timestamp_ms": 100, "hands": {"left": {"handedness": "left", "landmarks": {"space": "world", "points": {"0": [0.0, 1.0, 0.0], "5": [0.0, 0.0, 0.0], "17": [1.0, 0.0, 0.0]}}}, "right": null}},
+      {"timestamp_ms": 200, "hands": {"left": {"handedness": "left", "landmarks": {"space": "world", "points": {"0": [0.0, 1.0, 0.0], "5": [0.0, 0.0, 0.0], "17": [-1.0, 0.0, 0.0]}}}, "right": null}},
+      {"timestamp_ms": 300, "hands": {"left": {"handedness": "left", "landmarks": {"space": "world", "points": {"0": [0.0, 1.0, 0.0], "5": [0.0, 0.0, 0.0], "17": [-1.0, 0.0, 0.0]}}}, "right": null}}
+    ]
+  },
+  "expected": {"matched": true},
+  "metadata": {"tags": ["motion", "palm_orientation_transition", "ordered_history", "canonical_v1"]}
+}

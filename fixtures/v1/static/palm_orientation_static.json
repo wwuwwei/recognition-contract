@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "post_p2.9.3/palm_orientation/static_current_orientation",
+  "scope": "post_p2.9.3",
+  "primitive": "palm_orientation",
+  "args": {"hand": "any", "facing": "palm_to_camera"},
+  "input": {
+    "mode": "raw_landmarks",
+    "frames": [{
+      "timestamp_ms": 1000,
+      "hands": {
+        "left": {"handedness": "left", "landmarks": {"space": "world", "points": {"0": [0.0, 1.0, 0.0], "5": [0.0, 0.0, 0.0], "17": [1.0, 0.0, 0.0]}}},
+        "right": null
+      }
+    }]
+  },
+  "expected": {"matched": true},
+  "metadata": {"tags": ["static", "palm_orientation", "canonical_v1"]}
+}
